@@ -1,0 +1,19 @@
+def post(self, request):
+         print(request.data["User"])
+         uploading_file = request.FILES['Img']
+         fs = FileSystemStorage()
+         user1_check = request.data["User"]
+         os.remove(f'/home/aminutahiru600/PZONE/online/static/media/Clients/{user1_check}.jpg')
+         fs.save("Clients//"+request.data['User']+".jpg",uploading_file)
+         conn1 = sqlite3.connect('/home/aminutahiru600/PZONE/online/db.sqlite3')
+         c = conn1.cursor()
+         c.execute("""UPDATE Handler_Signup_info SET Img = :img WHERE User = :user """,{'img':request.data['User'],'user':request.data['User']})
+         conn1.commit()
+         conn1.close()
+         return render(request, 'main.html', {'product':product_info, 'User':request.data['User'] ,'roll':product_info2})
+
+
+
+         uploading_file = request.FILES['Img']
+         fs = FileSystemStorage()
+         fs.save("Clients//"+request.data['User']+".jpg",uploading_file)

@@ -1,0 +1,95 @@
+﻿
+
+<!DOCTYPE HTML>
+{% load static %}
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>StickyMobile BootStrap</title>
+<link rel="stylesheet" type="text/css" href="{% static 'Extra-3/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'Extra-1/styles/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'Extra-1/fonts/bootstrap-icons.css' %}">
+<link href="../../../css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+<link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+</head>
+<body class="theme-light" data-highlight="highlight-red" data-gradient="body-default">
+<div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
+<div id="page">
+
+
+<div class="page-content">
+   
+    <div class="page-content header-clear-medium">
+        <div class="card card-style mt-5 overflow-visible">
+        <img  data-src="/static/media/Users/{{DATA.0}}.jpg?={{RAND}}" width="150" height="150" class="mt-n5 preload-img mx-auto rounded-circle shadow-xl">
+        <div class="content text-center">
+        <div class="px-3 mb-n3">
+        <h1 class="font-700">{{DATA.1}}</h1>
+        <p class="pb-0 mb-0 font-15"><i class="bi bi-geo-alt-fill "></i>{{DATA.3}}</p>
+        <p class="mb-2 opacity-60 font-13">
+            {{DATA.6}}
+        </p>
+        <p class="font-10">
+        <strong class="color-theme pe-1">{{DATA.7}}</strong>Followers
+        <strong class="color-theme ps-3 pe-1">0</strong>Following
+        </p>
+        </div>
+        </div>
+        <div class="content">
+        <div class="row mb-0">
+        <div class="col-6">
+        <a href="../../../Following_page/{{DATA.1}}/{{Fol_id}}/{{DATA.0}}" class="btn btn-full btn-s rounded-s text-uppercase font-900 gradient-highlight shadow-bg shadow-bg-s">{{STAT}}</a>
+        </div>
+        <div class="col-6">
+        <a  href="../../../../Messeging_page/{{DATA.0}}/{{Fol_id}}" class="btn btn-full btn-s btn-border rounded-s text-uppercase font-900 color-highlight border-blue-dark shadow-l">Message</a>
+        </div>
+        </div>
+        </div>
+        </div>
+    
+<div class="card card-style p-3">
+    <span style="font-size: 15px;font-weight: bold;padding-bottom: 5px;"><i style="padding-right: 3px;" class="bi bi-camera2 "></i>Uploaded Images</span>
+<div class="row text-center row-cols-3 mb-n4">
+   
+{% for i in POST%}
+<a class="col mb-4" data-gallery="gallery-1" href="/static/media/Posts/{{i.0}}.jpg" title="Vynil and Typerwritter">
+<img   data-src="/static/media/Posts/{{i.0}}.jpg" class="img-fluid rounded-xs preload-img" alt="img">
+</a>
+{% endfor %}
+<div class="divider mb-4 mt-3"></div>
+
+<script>
+    function back1(){
+     window.history.go(-1)
+    }
+</script>
+</div>
+</div>
+<div class="footer card card-style">
+<span style="font-size: 15px;font-weight: bold;padding-bottom: 5px;"><i style="padding-right: 3px;" class="bi bi-music-note-list "></i>Uploaded Audios</span>
+{% for i in POST%}
+{% if i.2 == "Null_File"%}
+
+{%else%}
+<a style="padding-top: 10px;" href="/static/media/Posts/Audio/{{i.2}}.mp3" download><button  class="btn  text-uppercase  gradient-red shadow-bg shadow-bg-m" style="width: 100%" ><i style="padding-right: 3px" class="bi bi-music-note-list "></i> {{i.2}}</button></a>
+{%endif%}
+{% endfor %}
+
+
+<div class="divider mb-4 mt-3"></div>
+<div class="clear"></div>
+</div>
+</div>
+
+
+<script type="text/javascript" src="{% static 'Extra-3/scripts/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'Extra-3/scripts/custom.js' %}"></script>
+</body>
+</html>
+

@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Hype</title>
+<link rel="stylesheet" type="text/css" href="{% static 'Extra-1/styles/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'Extra-1/fonts/bootstrap-icons.css' %}">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="../../../css2?family=Inter:wght@500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="manifest" href="{% static 'Extra-1/_manifest.json' %}">
+<meta id="theme-check" name="theme-color" content="#FFFFFF">
+<link rel="apple-touch-icon" sizes="180x180" href="{% static 'Extra-1/app/icons/icon-192x192.png' %}"></head>
+<body class="theme-light">
+<div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
+
+<form method="POST" enctype="multipart/form-data" action="../../../upage/{{USER_ID}}">	
+
+<div id="page">
+
+
+
+
+
+
+    {% csrf_token %}
+    <div style="left: -10px;position: absolute;top: -10px;" class="box">
+        <div  class="upload-btn-wrapper">
+            
+            <button disabled   class="btn  gradient-red "><i class="bi bi-image font-30"></i></button>
+            <input required="Add an image!" accept="image/*" id="fil-input"style="width: 50;"type="file" name="Image_File" />
+
+       </div>
+       </div>   
+          <style>
+          .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+          }	  
+          .btn {
+            border-radius: 100px;
+
+          }
+          .upload-btn-wrapper input[type=file] {
+            border-radius: 100px;
+              
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+          }
+          </style>
+    
+
+    <div style="right: -10px;position: absolute;top: -10px;" class="box">
+        <div  class="upload-btn-wrapper">
+            
+            <button disabled  class="btn  gradient-green "><i class="bi bi-music-note font-30"></i></button>
+            <input  id="fil-input2"style="width: 50;" accept="audio/mp3" type="file" name="Audio_File" />
+
+       </div>
+       </div>   
+          <style>
+          .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+          }	  
+          .btn {
+            border-radius: 100px;
+
+          }
+          .upload-btn-wrapper input[type=file] {
+            border-radius: 100px;
+              
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+          }
+          </style>
+   
+    <input type="hidden" name="User_Id" value="{{USER_ID}}"/>      
+        
+    <div class="form-custom form-label form-icon mb-3">
+        <textarea name="Text" required="Say Something about your post!"  style="position: absolute;left: 2.5%;top: 70px;width: 95%;height: 100%;border-radius: 10px;border: 1px" maxlength="200"  class="rounded-xs" placeholder="Say Something about your post!" id="c7"></textarea>
+        </div> 
+    
+    <style>
+        textarea {
+            font-size: 90px;
+            resize: none;
+        }
+    </style>
+</div>
+<button  type="submit" class="btn btn-s text-uppercase  gradient-red shadow-bg shadow-bg-m" style="position: absolute;width: 95%;left: 2.5%;bottom: 10px;">Post</button>
+
+</form>
+</body>
+</html>
+
+
+  
+<script src="{% static 'Extra-1/scripts/bootstrap.min.js' %}"></script>
+<script src="{% static 'Extra-1/scripts/custom.js' %}"></script>
+   
+    
+
+
+
+

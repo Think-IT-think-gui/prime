@@ -1,0 +1,445 @@
+
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Hype</title>
+<link rel="stylesheet" type="text/css" href="{% static 'Extra-1/styles/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'Extra-1/fonts/bootstrap-icons.css' %}">
+<link rel="manifest" href="{% static 'Extra-1/_manifest.json' %}">
+<meta id="theme-check" name="theme-color" content="#FFFFFF">
+<link rel="apple-touch-icon" sizes="180x180" href="{% static 'Extra-1/app/icons/icon-192x192.png' %}"></head>
+<body class="theme-light">
+<div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
+<div id="page">
+
+<div style="padding-top: 70px;"></div>
+
+
+
+
+
+
+{% for i in DATA %}
+<div class="card card-style">
+    <a href="../../../OtherProfile_page/{{i.1}}/{{INFO.0}}"><img class="shadow-bg shadow-bg-m" src="/static/media/Users/{{i.1}}.jpg" style="width:50px;right: 2px;top: 3px;height: 50px;border-radius:110px;position: absolute;" ></a>
+    <a href="#" onclick="hype({{i.0}})" data-toast="snack-bookmark" style="position:absolute;right:28px;top: 26px;width: 20px;height: 20px; " class="icon icon-xxs  shadow-bg shadow-bg-xs rounded-s me-2"><i style="font-size: 20px;" class="bi bi-heart-fill color-white"></i></a>
+    <img onclick="Playaudio('{{i.2}}')" src="/static/media/Posts/{{i.0}}.jpg" class="img-fluid">
+<div class="d-flex mt-n2 ms-3">
+<span class="badge text-uppercase px-2 py-1 gradient-red shadow-bg shadow-bg-m">{{i.3}}</span>
+
+ 
+</div>
+
+<div class="content">
+<div class="d-flex">
+    
+<div class="d-flex mt-n2 ms-50"> 
+    
+    <span id="iid{{i.0}}" style="position:absolute;right: 0px;"><i style="padding-right: 3px;"  class="bi bi-heart-fill color-facebook "></i>{{i.5}}+ </span>
+    </div>  
+<div class="align-self-center">
+<h4 class="font-600 mb-0">{{i.6}} <p style="font-size: 13px;">Posted</p> </h4>
+<p>
+{{i.4}}
+
+</p>
+</div>
+<div class="align-self-center ms-auto">
+{% if i.3 == "IMAGE+AUDIO"%}
+  <a href="/static/media/Posts/Audio/{{i.2}}.mp3" class="btn btn-s gradient-red shadow-bg shadow-bg-s text-uppercase font-700 rounded-sm ms-3" download><i class="bi bi-download font-15" ></i></a>
+{% else %}
+
+<a href="#" class="btn btn-s gradient-red shadow-bg shadow-bg-s text-uppercase font-700 rounded-sm ms-3" aria-disabled="true"><i class="bi bi-download font-15" ></i></a>
+
+{% endif %}
+
+</div>
+<div class="align-self-center ms-auto">
+<a href="#" data-bs-toggle="offcanvas" data-bs-target="#menu-share" class="btn btn-s gradient-green shadow-bg shadow-bg-s text-uppercase font-700 rounded-sm ms-3"><i class="bi bi-share-fill font-15" ></i></a>
+</div>
+</div>
+</div>
+    
+
+    
+<a class="list-group-item" href="#collapse-list-{{i.0}}" aria-controls="collapse-list-{{i.0}}" data-bs-toggle="collapse">
+    <div style="align-items: center;align-self: start;">
+        <i style="position: absolute;left: 45%;" class="bi color-blue-dark bi-chat-dots-fill"></i>
+        <i style="opacity: 0;" class="bi color-yellow-dark bi-chat-dots-fill"></i>    
+    </div>
+   
+    </a>
+    <div id="collapse-list-{{i.0}}" class="collapse">
+    <a href="#" class="list-group-item">
+        <div class="form-custom form-label form-icon mb-3">
+        <i class="bi bi-pencil-fill font-12"></i>
+        <textarea class="form-control rounded-xs" placeholder="Leave a comment here" id="c7_{{i.0}}"></textarea>
+       
+        </div>   
+    <button onclick="commented('{{INFO.0}}','{{INFO.1}}','{{i.0}}','c7_{{i.0}}','case_{{i.0}}')" class="btn btn-s text-uppercase  gradient-red shadow-bg shadow-bg-m" style="width: 95%;left: 2.5%;bottom: 10%;">Comment</button>
+    
+    <div class="ps-1"><strong class="font-12">Recent Comments</strong></div>
+    <i class="bi bi-chevron-right font-9 color-gray-dark ps-4"></i>
+    <div id="case_{{i.0}}">
+        
+        </div>
+    <button onclick="get_comment('{{i.0}}','case_{{i.0}}')" class="btn btn-s text-uppercase  gradient-green shadow-bg shadow-bg-m" style="width: 50%;left: 25%;bottom: 10%;">Load Comments</button>
+
+
+    </a>
+    
+    </div>
+</div>
+
+
+{% endfor %}
+
+    
+
+
+<a href="../../../Trendsreload_page/{{INFO.0}}/{{Last}}"><button class="btn btn-s text-uppercase  gradient-red shadow-bg shadow-bg-m" style="width: 95%;left: 2.5%;bottom: 10px;"><i style="padding-right: 5px;" class="bi bi-cloud-download-fill font-15" ></i>Load more</button>
+</a>
+<div style="padding-top: 70px;"></div>
+
+<script src="scripts/bootstrap.min.js"></script>
+<script src="scripts/custom.js"></script>
+</body></html>
+
+
+<div id="snack-bookmark" class="snackbar bg-red-dark shadow-bg shadow-bg-m rounded-s shadow-l" data-bs-delay="500">
+    <div class="d-flex">
+    <div class="align-self-center">
+    <p class="mb-0 color-white font-600 line-height-s">You Hyped This</p>
+    </div>
+    <div class="align-self-center ms-auto">
+    <a href="#" data-bs-dismiss="toast" class="bg-white px-2 py-1 my-1 d-block text-uppercase color-black font-700 font-11 rounded-xs">Okay</a>
+    </div>
+    </div>
+    </div>
+    
+    <div class="offcanvas offcanvas-bottom rounded-m offcanvas-detached bg-theme" id="menu-share">
+    <div class="content mt-3">
+    <div class="d-flex pb-2">
+    <div class="align-self-center">
+    <h5 class="mb-n1 font-12 color-highlight font-700 text-uppercase pt-1">Just tap and</h5>
+    <h1 class="font-700">Share Hype</h1>
+    </div>
+    <div class="align-self-center ms-auto">
+    <a href="#" data-bs-dismiss="offcanvas" class="icon icon-m"><i class="bi bi-x-circle-fill color-red-dark font-18 me-n4"></i></a>
+    </div>
+    </div>
+    <div class="list-group list-custom list-group-m rounded-xs list-group-flush bg-theme">
+    <a href="auto_generated" class="shareToFacebook list-group-item">
+    <i class="bi bi-facebook color-facebook font-16"></i>
+    <div>Facebook</div>
+    <i class="bi bi-chevron-right pe-1"></i>
+    </a>
+    <a href="auto_generated" class="shareToTwitter list-group-item">
+    <i class="bi bi-twitter color-twitter font-16"></i>
+    <div>Twitter</div>
+    <i class="bi bi-chevron-right pe-1"></i>
+    </a>
+    <a href="auto_generated" class="shareToLinkedIn list-group-item">
+    <i class="bi bi-linkedin color-linkedin font-16"></i>
+    <div>LinkedIn</div>
+    <i class="bi bi-chevron-right pe-1"></i>
+    </a>
+    <a href="auto_generated" class="shareToPinterest list-group-item">
+    <i class="bi bi-pinterest color-pinterest font-16"></i>
+    <div>Pinterest</div>
+    <i class="bi bi-chevron-right pe-1"></i>
+    </a>
+    <a href="auto_generated" class="shareToWhatsApp list-group-item">
+    <i class="bi bi-whatsapp color-whatsapp font-16"></i>
+    <div>WhatsApp</div>
+    <i class="bi bi-chevron-right pe-1"></i>
+    </a>
+    <a href="auto_generated" class="shareToMail list-group-item">
+    <i class="bi bi-envelope-open-fill color-blue-dark font-16"></i>
+    <div>Mail</div>
+    <i class="bi bi-chevron-right pe-1"></i>
+    </a>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    <script src="{% static 'Extra-1/scripts/bootstrap.min.js' %}"></script>
+    <script src="{% static 'Extra-1/scripts/custom.js' %}"></script>
+</body>
+</html>
+
+<audio  id="aud" autoplay loop src=""></audio> 
+
+<script>
+    function Playaudio(song){
+        console.log(song);
+    var audio_change = document.getElementById("aud").src = "/static/media/Posts/Audio/"+song+".mp3"
+    }
+    function refresch_p(){
+        window.location.reload()
+    }
+    
+</script>    
+
+<script>
+
+    function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+    }
+
+    const csrftoken = getCookie('csrftoken');
+    console.log(csrftoken)
+
+    function hype(idd){
+    
+	data = JSON.stringify({
+	ID: idd
+   })
+    fetch("../../../Hype_page", {
+    method: 'POST',
+    body: data,
+    headers: { 'X-CSRFToken': csrftoken,'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        },
+   })
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    var ch = document.getElementById("iid"+idd)
+    ch.innerHTML = ""
+    ch.innerHTML = '<i style="padding-right: 3px;"  class="bi bi-heart-fill color-facebook "></i>'+data+"+" 
+    
+   });}
+
+    function addnew(idd){
+    
+	data = JSON.stringify({
+	hold: idd
+   })
+    fetch("../../../Trends_page", {
+    method: 'POST',
+    body: data,
+    headers: { 'X-CSRFToken': csrftoken,'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        },
+   })
+  .then(response => response.json())
+  .then(data => {
+    //console.log(data);
+    for (i in data.DATA) {
+       console.log(data.DATA[i][2]);
+    var div1 = document.createElement("div")
+    div1.setAttribute("class","card card-style")
+    var img1 = document.createElement("img")
+    img1.setAttribute("class","shadow-bg shadow-bg-m")
+    img1.setAttribute("style","width:50px;right: 2px;top: 3px;height: 50px;border-radius:110px;position: absolute;")
+    img1.setAttribute("src","/static/media/Users/"+data.DATA[i][6]+".jpg")
+
+    var img2 = document.createElement("img")
+    img2.setAttribute("class","img-fluid")
+    img2.setAttribute("src","/static/media/Posts/"+data.DATA[i][1]+".jpg")
+    
+    var div2 = document.createElement("div")
+    div2.setAttribute("class","d-flex mt-n2 ms-3")
+
+    var span1 = document.createElement("span")
+    span1.setAttribute("class","d-flex mt-n2 ms-3")
+    span1.setAttribute("innerHTML",data.DATA[i][5])
+    span1.setAttribute("class","badge text-uppercase px-2 py-1 gradient-red shadow-bg shadow-bg-m")
+
+
+
+
+
+
+    div1.append(img1)
+    div1.append(img2)
+    div2.append(span1)
+    var main = document.getElementById("page")
+    main.append(div1)
+    main.append(div2)
+
+   
+    }
+   });}
+
+
+   function commented(User_id,User_idd,Post_id,TexT_ID,CASE_ID){
+       console.log(User_id);
+       console.log(User_idd);
+    
+    var Text_data = document.getElementById(TexT_ID).value;
+    if (Text_data === ""){
+        var T_data = "..."
+    }else{
+	data = JSON.stringify({
+	User_Id: User_id,
+    User_Idd: User_idd,
+    Post_Id: Post_id,
+    Text_Value: Text_data,
+   })
+    fetch("../../../Add_comment/o", {
+    method: 'POST',
+    body: data,
+    headers: { 'X-CSRFToken': csrftoken,'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        },
+   })
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById(TexT_ID).value = "";
+
+    console.log(data);
+
+    
+       console.log(data[2]);
+       
+    
+       var atag = document.createElement("a")
+       atag.href = "../../../OtherProfile_page/"+data["User_Id"]+'/{{INFO.0}}' 
+       var div1 = document.createElement("div")
+    div1.setAttribute("class","card card-style")
+    var div2 = document.createElement("div")
+    div2.setAttribute("class","content mb-0")
+    var div3 = document.createElement("div")
+    //div3.setAttribute("class","list-group list-custom list-group-m list-group-flush rounded-xs")
+    var div4 = document.createElement("div")
+    var img1 = document.createElement("img")
+    img1.setAttribute("class","shadow-bg shadow-bg-m")
+    img1.setAttribute("style","width:50px;height: 50px;border-radius:110px;")
+    img1.setAttribute("src","/static/media/Users/"+data["User_Id"]+".jpg")
+    var txt1 = document.createElement("strong")
+    txt1.setAttribute("style","position: absolute;top: 12px;font-weight: bold;padding-left: 10px;")
+    txt1.textContent = data["User_Idd"]
+    console.log(data["User_Idd"]);
+    var txt2 = document.createElement("span")
+    txt2.textContent = data["Text_Value"]
+
+    
+    
+
+
+
+    atag.append(img1) 
+    div3.append(atag)
+    div3.append(txt1)
+    div4.append(txt2)
+    div2.append(div3)
+    div2.append(div4)
+    div1.append(div2)
+
+
+
+
+
+    //div2.append(span1)
+    var main = document.getElementById(CASE_ID)
+    main.append(div1)
+    //main.append(div2)
+
+   
+    
+
+    //var ch = document.getElementById("iid"+idd)
+    //ch.inne
+
+   // ch.innerHTML = '<i style="padding-right: 3px;"  class="bi bi-heart-fill color-facebook "></i>'+data+"+" 
+    
+   });}}
+console.log("{{info}}");
+
+   function get_comment(Post_id,CASE_ID){
+    var Text_data = document.getElementById(CASE_ID).innerHTML = "<pk style='text-align:centre'>Getting Comments..<pk>";
+    
+	
+    fetch("../../../Add_comment/"+Post_id, {
+    method: 'get',
+    headers: { 'X-CSRFToken': csrftoken,'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        },
+   })  
+  .then(response => response.json())
+  .then(data => {
+    var Text_data = document.getElementById(CASE_ID).innerHTML = "";
+        for (i in data) {
+       console.log(data[i][2]);
+       
+    
+    
+       var atag = document.createElement("a")
+       atag.href = "../../../OtherProfile_page/"+data[i][1]+'/{{INFO.0}}'; 
+      
+       var div1 = document.createElement("div");
+    div1.setAttribute("class","card card-style");
+    var div2 = document.createElement("div");
+    div2.setAttribute("class","content mb-0");
+    var div3 = document.createElement("div");
+    //div3.setAttribute("class","list-group list-custom list-group-m list-group-flush rounded-xs")
+    var div4 = document.createElement("div");
+    var img1 = document.createElement("img");
+    img1.setAttribute("class","shadow-bg shadow-bg-m")
+    img1.setAttribute("style","width:50px;height: 50px;border-radius:110px;");
+    img1.setAttribute("src","/static/media/Users/"+data[i][1]+".jpg");
+    var txt1 = document.createElement("strong");
+    txt1.setAttribute("style","position: absolute;top: 12px;font-weight: bold;padding-left: 10px;");
+    txt1.textContent = data[i][3];
+    console.log(data[i][3]);
+    var txt2 = document.createElement("span");
+    txt2.textContent = data[i][5];
+
+    
+    
+
+
+    atag.append(img1) 
+    div3.append(atag)
+    div3.append(txt1)
+    div4.append(txt2)
+    div2.append(div3)
+    div2.append(div4)
+    div1.append(div2)
+
+
+
+
+
+    //div2.append(span1)
+    var main = document.getElementById(CASE_ID)
+    main.append(div1)
+    //main.append(div2)
+
+   
+    }
+
+    console.log(data);
+    //var ch = document.getElementById("iid"+idd)
+    //ch.innerHTML = ""
+   // ch.innerHTML = '<i style="padding-right: 3px;"  class="bi bi-heart-fill color-facebook "></i>'+data+"+" 
+    
+   });}
+
+</script>
+
+
+
+
+    

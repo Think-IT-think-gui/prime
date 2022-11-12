@@ -1,0 +1,178 @@
+
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Hype</title>
+<link rel="stylesheet" type="text/css" href="{% static 'Extra-1/styles/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'Extra-1/fonts/bootstrap-icons.css' %}">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="manifest" href="{% static 'Extra-1/_manifest.json' %}">
+<meta id="theme-check" name="theme-color" content="#FFFFFF">
+<link rel="apple-touch-icon" sizes="180x180" href="{% static 'Extra-1/app/icons/icon-192x192.png' %}"></head>
+<body class="theme-light">
+<div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
+<div id="page">
+
+
+
+<div class="page-content header-clear-medium">
+<div class="card card-style">
+<div class="content m-2 p-1">
+<div class="d-flex">
+    <div   style="width: 100% ;height: 40px;border-radius: 30px;background-color:  transparent">
+        <input id="inman" placeholder="Chat search.." class="form-control bg-theme"  required="" style="width: 100% ;height: 40px;border-radius: 30px;border-color: transparent;" required="required" autofocus="">
+        <input type="hidden" name="User" value="{{User}}" />	
+    </div>  
+    <span onclick="find_id()" style="padding-left: 8px;padding-top: 8px;color: rgb(37, 37, 37);" class="font-20 bi bi-search" aria-hidden="true"></span>
+
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="card card-style">
+<div class="content m-0">
+<div class="d-flex px-3">
+<div>
+<h5 class="pb-1 pt-3 font-13">Recent Chats</h5>
+</div>
+
+</div>
+<div class="divider mb-0 mt-2"></div>
+<div id="listbox" class="list-group list-custom list-group-l rounded-l">
+<div></div>    
+{% for i in LIST %}
+<a id={{i.0}} href="../../../../Messeging_page/{{i.2}}/{{USER_ID}}" class="list-group-item border-top-0 border-start-0 border-end-0">
+<img src="/static/media/Users/{{i.2}}.jpg?={{RAND}}" width="32" height="32" class="me-2 rounded-s">
+<i class="bi bi-circle-fill font-10 ps-3 ms-2 mt-3 position-absolute color-green-dark"></i>
+<div class="ps-1">
+<strong class="font-600">{{i.7}}</strong>
+</div>
+
+<p class="font-10 font-500 color-theme text-end ms-auto line-height-xs align-self-center">
+{{i.3}}
+</p>
+
+</a>
+{% endfor %}
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<input type="hidden" value="{{VAL}}" id="INVALUE" />
+<script src="{% static 'Extra-1/scripts/bootstrap.min.js' %}"></script>
+<script src="{% static 'Extra-1/scripts/custom.js' %}"></script>
+</body></html>
+
+<script>
+
+function getCookie(name) {
+    window.scrollTo(0,document.body.scrollHeight);
+
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+    }
+
+    const csrftoken = getCookie('csrftoken');
+    //console.log(csrftoken)
+
+   setInterval(load_all,3000);
+    function load_all(){
+    var invalue = document.getElementById("INVALUE").value    
+    data = JSON.stringify({
+	user_id: '{{USER_ID}}',
+    val_id: invalue
+   })
+    fetch("../../../Hitlisting_page", {
+    method: 'POST',
+    body: data,
+    headers: { 'X-CSRFToken': csrftoken,'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        },
+   })
+  .then(response => response.json())
+  .then(data => {
+
+    document.getElementById("INVALUE").value = data.VAL    
+
+    for (i in data.LISTED) { 
+    if (data.LISTED === "NONE"){
+     //console.log(data);
+        v=1
+    }else{
+
+
+    
+    try{
+     var oldbar = document.getElementById(data.LISTED[i][0])
+     oldbar.remove()
+    }catch(er){
+        c=1;
+    }
+        var atag = document.createElement("a")
+    atag.setAttribute("class","list-group-item border-top-0 border-start-0 border-end-0")
+    atag.id = data.LISTED[i][0]
+    atag.href = "../../../../Messeging_page/"+data.LISTED[i][2]+"/{{USER_ID}}"; 
+   
+    var div1 = document.createElement("div")
+    div1.setAttribute("class","ps-1")
+
+
+	
+    var img1 = document.createElement("img")
+    img1.setAttribute("class","me-2 rounded-s")
+    img1.setAttribute("width","32")
+    img1.setAttribute("height","32")
+    img1.setAttribute("src","/static/media/Users/"+data.LISTED[i][2]+".jpg?={{RAND}}")
+    
+    var ico = document.createElement("i")
+    ico.setAttribute("class","bi bi-bell-fill font-16 ps-3 ms-2 mt-3 position-absolute color-red-light")
+
+    var span1 = document.createElement("span")
+    span1.setAttribute("class","font-10 font-500 color-red-light text-end ms-auto line-height-xs align-self-center")
+    span1.textContent = data.LISTED[i][3]
+
+    var span2 = document.createElement("strong")
+    span2.setAttribute("class","font-600 color-red-light")
+    span2.textContent = data.LISTED[i][7]
+
+
+
+     div1.append(span2)
+     atag.append(img1)
+     atag.append(ico)
+
+     var main = document.getElementById("listbox")
+     atag.append(div1)
+     atag.append(span1)
+   
+     main.firstElementChild.append(atag)
+    window.scrollTo(0,document.body.scrollHeight);
+     
+    }
+    
+   
+ 
+    
+     }});}
+
+</script>

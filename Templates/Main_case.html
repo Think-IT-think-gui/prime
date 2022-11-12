@@ -1,0 +1,324 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Hype</title>
+<link rel="stylesheet" type="text/css" href="{% static 'Extra-1/styles/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'Extra-1/fonts/bootstrap-icons.css' %}">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="manifest" href="{% static 'Extra-1/_manifest.json' %}">
+<link href="../../../css2?family=Inter:wght@500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<meta id="theme-check" name="theme-color" content="#FFFFFF">
+<link rel="apple-touch-icon" sizes="180x180" href="{% static 'Extra-1/app/icons/icon-192x192.png' %}"></head>
+<body class="theme-light">
+<div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
+<div id="page">
+
+<div class="header-bar header-fixed header-app header-bar-detached">
+    <a href="#" data-bs-toggle="offcanvas" data-bs-target="#menu-bell"><i class="font-14 bi bi-bell-fill"></i></a>
+    <span onclick="findit()" style="padding-left: 8px;padding-right: 5px;color: rgb(37, 37, 37);" class="font-14 bi bi-search" aria-hidden="true"></span>
+    
+    <div   style="width: 100% ;height: 40px;border-radius: 30px;background-color:  transparent">
+        <input id="inman" placeholder="Looking for something.." class="form-control bg-theme"  required="" style="width: 100% ;height: 40px;border-radius: 30px;border-color: transparent;" required="required" autofocus="">
+       	
+    </div>  
+    <script>
+
+    //setInterval(load_all,5000);
+    //function load_all(){
+    //var placeh = document.getElementById("inman")
+
+    //}
+    </script>
+<div style="width: 10px;"></div>
+<img onclick="noob2()" src="/static/media/Users/{{USER_ID}}.jpg?={{RAND}}" style="width:40px;height: 40px;border-radius:1000px" >
+<div style="width: 10px;"></div>
+
+</div>
+
+<div id="footer-bar" class="footer-bar footer-bar-detached">
+    <a href="#" id="home1" class="active-nav"><i class="bi bi-house font-16" onclick="noob3()"></i><span>Home</span></a>
+    <a href="#" id="trends1"><i class="bi bi-music-note-beamed font-17" onclick="noob1()"></i><span>Trends</span></a>
+    <a href="#" id="messages1"><i class="bi bi-envelope font-15" onclick="noob4()"></i><span>Messages</span></a>
+    <a href="#" data-bs-toggle="offcanvas" data-bs-target="#menu-main"><i class="bi bi-collection"></i><span>Menu</span></a>
+</div>
+
+
+
+<div id="menu-main" data-menu-active="nav-homes" data-menu-load="menu-main.html" style="width: 280px; visibility: visible;" class="offcanvas offcanvas-start offcanvas-detached rounded-m show" aria-modal="true" role="dialog">
+    <div class="card card-style bg-23 mb-3 rounded-m mt-3" data-card-height="150" style="height: 150px;">
+    <div class="card-top m-3">
+    <a href="#" data-bs-dismiss="offcanvas" class="icon icon-xs bg-theme rounded-s color-theme float-end"><i class="bi bi-caret-left-fill"></i></a>
+    </div>
+    <div class="card-bottom p-3">
+    <h1 class="color-white font-20 font-700 mb-n2">Get Hyped</h1>
+    <p class="color-white font-12 opacity-70 mb-n1">By 1,000+ Fans At A Go</p>
+    </div>
+    <div class="card-overlay bg-gradient-fade rounded-0"></div>
+    </div>
+    <div class="bg-theme mx-3 rounded-m shadow-m mt-3 mb-3">
+    <div class="d-flex px-2 pb-2 pt-2">
+    <div>
+    <a href="#"><img src="/static/media/Users/{{USER_ID}}.jpg?={{RAND}}" width="45" height="45" class="rounded-s" alt="img"></a>
+    </div>
+    <div class="ps-2 align-self-center">
+    <h5 class="ps-1 mb-0 line-height-xs pt-1">{{User}}</h5>
+    <h6 class="ps-1 mb-0 font-400 opacity-40">A Hype Member</h6>
+    </div>
+    <div class="ms-auto">
+    <a href="#" data-bs-toggle="dropdown" class="icon icon-m ps-3"><i class="bi bi-three-dots-vertical font-18 color-theme"></i></a>
+    <div class="dropdown-menu  bg-transparent border-0 mt-n1 ms-3">
+    <div class="card card-style rounded-m shadow-xl mt-1 me-1">
+    <div class="list-group list-custom list-group-s list-group-flush rounded-xs px-3 py-1">
+    <a href="../../../Profile_Image_page/{{USER_ID}}" class="color-theme opacity-70 list-group-item py-1"><strong class="font-500 font-12">Update Profile</strong><i class="bi bi-chevron-right"></i></a>
+    <a href="../../../Profile_Info_page/{{USER_ID}}" class="color-theme opacity-70 list-group-item py-1"><strong class="font-500 font-12">Update Your Info</strong><i class="bi bi-chevron-right"></i></a>
+    <a href="../../../Logout" class="color-theme opacity-70 list-group-item py-1"><strong class="font-500 font-12">Log Out</strong><i class="bi bi-chevron-right"></i></a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    <span class="menu-divider mt-4">SETTINGS</span>
+    <div class="menu-list">
+    <div class="card card-style rounded-m p-3 py-2 mb-0">
+    
+    <a href="#" data-toggle-theme="" data-trigger-switch="switch-1">
+    <i class="gradient-dark shadow-bg shadow-bg-xs bi bi-moon-fill font-13"></i>
+    <span>Dark Mode</span>
+    <div class="form-switch ios-switch switch-green switch-s me-2">
+    <input type="checkbox" data-toggle-theme="" class="ios-input" id="switch-1">
+    <label class="custom-control-label" for="switch-1"></label>
+    </div>
+    </a>
+    </div>
+    </div>
+    
+    <span class="menu-divider mt-4">Expected Updates</span>
+    <div class="menu-content px-3">
+    <div class="card card-style rounded-m p-2 mx-0 bg-theme">
+    <a href="#">
+    <div class="d-flex">
+    <div class="align-self-center">
+    <img src="{% static 'Extra-1/images/pictures/2s.jpg' %}" class="rounded-s me-2" width="60" alt="img">
+    </div>
+    <div class="align-self-center">
+    <h5 class="font-14 mb-0 ps-1 pt-1">Automatic Share</h5>
+    <p class="ps-1 pb-1 mb-0 font-11 line-height-s opacity-70">
+    Your posts will have an automatic share to all your followers handles.
+    </p>
+    </div>
+    </div>
+    </a>
+    <div class="mb-2"></div>
+    <a href="#">
+    <div class="d-flex">
+    <div class="align-self-center">
+    <img src="{% static 'Extra-1/images/pictures/5s.jpg' %}" class="rounded-s me-2" width="60" alt="img">
+    </div>
+    <div class="align-self-center">
+    <h5 class="font-14 mb-0 ps-1 pt-1">Community Setup</h5>
+    <p class="ps-1 pb-1 mb-0 font-11 line-height-s opacity-70">
+    Get to join others who share your interest and passion.
+    </p>
+    </div>
+    </div>
+    </a>
+    <div class="mb-2"></div>
+    <a href="#">
+    <div class="d-flex">
+    <div class="align-self-center">
+    <img src="{% static 'Extra-1/images/pictures/11s.jpg' %}" class="rounded-s me-2" width="60" alt="img">
+    </div>
+    <div class="align-self-center">
+    <h5 class="font-14 mb-0 ps-1 pt-1">Endless Stream</h5>
+    <p class="ps-1 pb-1 mb-0 font-11 line-height-s opacity-70">
+    Enjoy more of what you like and get notified if any imerges.
+    </p>
+    </div>
+    </div>
+    </a>
+    </div>
+    </div>
+    <p class="text-center mb-0 mt-n3 pb-3 font-9 text-uppercase font-600 color-theme">A product of IEO<span class="copyright-year"></span>.</p>
+    <a onclick="refresch_p()" class="btn btn-full btn-s btn-border rounded-s text-uppercase font-900 color-highlight border-blue-dark shadow-l" style="z-index: 100;"><i class=" font-15 px-1 bi bi-arrow-repeat color-blue-dark"></i>Reload App</a>
+     <div style="padding-top:  10px;"></div>
+     </div>
+
+<div id="menu-color" data-menu-load="menu-highlights.html" style="height:340px" class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+
+	
+<iframe src="../../../upage/{{USER_ID}}" style="width:100%;height: 99%;"></iframe>
+
+
+</div>
+
+<div id="menu-bell" data-menu-load="menu-bell.html" style="height:400px;" class="offcanvas offcanvas-top offcanvas-detached rounded-m">
+</div>
+<a href="#" data-bs-toggle="offcanvas" data-bs-target="#menu-color">
+    <button class ="gradient-red shadow-bg shadow-bg-s" style="position: fixed;width: 40px;height: 40px;border-radius: 100px;left: 0px;top:100px;font-size: 25px;"><i class="bi bi-cloud-arrow-up-fill color-white"></i></button>
+     
+</a>
+
+
+<iframe src="../../Home_page" id="homeid2" style="position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 5;"></iframe>
+<iframe src="../../Messages_page/{{USER_ID}}" id="messagesid2" style="position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 4;"></iframe>
+<iframe src="../../Trends_page/{{USER_ID}}" id="trendsid2" style="position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 4;"></iframe>
+<iframe src="../../Profile_page/{{USER_ID}}" id="mediaid2" style="position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 4;"></iframe>
+<iframe src="" id="search2" style="position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 4;"></iframe>
+
+
+<input type="hidden" value="HOME" id="CONST">
+
+<script src="{% static 'Extra-1/scripts/bootstrap.min.js' %}"></script>
+<script src="{% static 'Extra-1/scripts/custom.js' %}"></script>
+<script src="{% static 'Extra-1/scripts/cut.js' %}"></script>
+
+
+
+<script>
+    function refresch_p(){
+        window.location.reload()
+    }
+    function noob1(){
+        document.getElementById("CONST").value = "TRENDS"
+        document.getElementById("trends1").setAttribute("class","active-nav");
+        document.getElementById("home1").setAttribute("class","not-active");
+        document.getElementById("messages1").setAttribute("class","not-active");
+        document.getElementById("homeid2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 2;");
+        document.getElementById("messagesid2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 2;");
+        document.getElementById("trendsid2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 5;");
+        document.getElementById("mediaid2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 2;");
+        document.getElementById("search2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 2;");
+
+    }
+    function noob2(){
+        document.getElementById("CONST").value = "MEDIA"
+        document.getElementById("trends1").setAttribute("class","not-active");
+        document.getElementById("home1").setAttribute("class","not-active");
+        document.getElementById("messages1").setAttribute("class","not-active");
+        document.getElementById("homeid2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 2;");
+        document.getElementById("homeid2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 2;");
+        document.getElementById("messagesid2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 2;");
+        document.getElementById("trendsid2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 2;");
+        document.getElementById("search2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 2;");
+        document.getElementById("mediaid2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 5;"); 
+    }
+    function noob3(){
+        document.getElementById("CONST").value = "HOME"
+        document.getElementById("trends1").setAttribute("class","not-active");
+        document.getElementById("home1").setAttribute("class","active-nav");
+        document.getElementById("messages1").setAttribute("class","not-active");
+        document.getElementById("homeid2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 5;");
+        document.getElementById("messagesid2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 2;");
+        document.getElementById("trendsid2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 2;");
+        document.getElementById("mediaid2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 2;"); 
+        document.getElementById("search2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 2;");
+      
+    }
+    function noob4(){
+        document.getElementById("CONST").value = "MESSAGE"
+        document.getElementById("trends1").setAttribute("class","not-active");
+        document.getElementById("home1").setAttribute("class","not-active");
+        document.getElementById("messages1").setAttribute("class","active-nav");
+        document.getElementById("messagesid2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 5;");
+        document.getElementById("homeid2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 2;");
+        document.getElementById("trendsid2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 2;");
+        document.getElementById("mediaid2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 2;");   
+        document.getElementById("search2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 2;");
+   
+   }  
+   function findit(){
+    var fdt = document.getElementById("inman")
+    if (fdt.value === ''){
+        alert("What are you looking for?")
+    }else{
+        document.getElementById("trends1").setAttribute("class","not-active");
+        document.getElementById("home1").setAttribute("class","not-active");
+        document.getElementById("messages1").setAttribute("class","not-active");
+
+    document.getElementById("search2").setAttribute("style","position: absolute;width: 100%;top: 0%;height:100vmax;z-index: 6;");
+
+    document.getElementById("search2").src ="../../../Search_Api_page/{{USER_ID}}/"+fdt.value+"/" 
+    fdt.value=""
+    }
+    }
+</script>
+
+
+<script>
+   // setInterval(load_all,4000);
+  //  function load_all(){
+       // var selected_data = document.getElementById("CONST").value
+       // console.log(selected_data);
+       // if (selected_data === "MESSAGE"){
+        //    y = 2
+       // }else{
+         //   y=3
+           // document.getElementById("messagesid2").setAttribute("src","../../Messages_page");
+     //      
+     //   }
+///
+   // }
+   
+   
+</script>
+
+
+
+
+<script>
+	function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+    }
+
+    const csrftoken = getCookie('csrftoken');
+    console.log(csrftoken)
+    function addnew(){
+    
+	let photo = document.getElementById("fil-input").files[0];
+     let formphoto = new FormData();
+     formphoto.append("Photo",photo);
+     console.log(formphoto);
+    data = JSON.stringify({
+    "photo": photo
+   })
+    fetch("upage", {
+    method: 'POST',
+    body: data,
+    headers: { 'X-CSRFToken': csrftoken,'Accept': 'application/json,multipart/form-data, text/plain, */*',
+        'Content-Type': 'application/json',
+        },
+   })
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+   });}
+
+   </script>
+
+
+<script>
+    function far(){
+     
+     fetch('', {method:"POST", body: formphoto});
+   } 
+ </script>

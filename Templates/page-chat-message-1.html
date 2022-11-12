@@ -1,0 +1,905 @@
+﻿
+<!DOCTYPE HTML>
+{% load static %}
+<html lang="en">
+<head>
+<script>function se(){
+console.log("hhhhh");
+}
+	</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>StickyMobile BootStrap</title>
+<link rel="stylesheet" type="text/css" href="{% static 'Extra-3/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'Extra-1/styles/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'Extra-1/fonts/bootstrap-icons.css' %}">
+<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+<link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+</head>
+<body class="theme-light" data-highlight="highlight-red" data-gradient="body-default">
+<div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
+<div  id="page2">
+
+	
+<div class="offcanvas offcanvas-start rounded-m offcanvas-detached" style="width:300px" id="menu-gallery-3">
+    <div>
+		
+        <div class="box-2">
+            <div style="padding-top: 100px;" ></div>
+            <div style="text-align: center;" id="fat" class="result">
+                <img style="border-radius: 20px;width:200px;height:200px " src="/static/media/Content/Default.jpg">
+            
+            </div>
+        </div>
+       
+        <div style="text-align: center;" class="box">
+            <div style="padding-top: 20px;"></div>
+            <div class="upload-btn-wrapper">
+                <button class="btn btn-s text-uppercase  gradient-blue" ><i style="padding-right: 3px;" class="bi bi-camera-fill font-20"></i>Select a file</button>
+                <input   class="btn btn-s text-uppercase  gradient-blue"  id="file-input" style="width: 100%;" type="file" name="New_Img" required="" accept="image/*" />
+              </div>
+              <style>
+              .upload-btn-wrapper {
+                position: relative;
+                overflow: hidden;
+                display: inline-block;
+              }	  
+              .upload-btn-wrapper input[type=file] {
+                font-size: 100px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                
+                width: 50%;
+                opacity: 0;
+              }
+              </style>
+        </div>
+        </div>
+        <div class="form-custom form-label form-icon mb-3">
+            <textarea name="Text" required="Say Something about your post!"  style="position: absolute;left: 2.5%;top: 70px;width: 95%;height: 100%;border-radius: 10px;border: 1px" maxlength="200"  class="rounded-xs" placeholder="Say Something about this image!" id="Picmsg"></textarea>
+            </div> 
+        <button  onclick="sendimg('{{IDD_ID}}','{{RES}}','{{IDD}}')" id="hh" class="btn btn-s text-uppercase  gradient-red shadow-bg shadow-bg-m" style="position: absolute;width: 95%;left: 2.5%;bottom: 80px;">Send</button>
+ 
+    
+    <style>
+    
+    .hide {
+        display: none;
+    }
+    img {
+        max-width: 100%;
+    }
+    </style>
+    <script>
+    
+    </script>
+    
+    
+    </div>
+    
+
+
+    <div class="offcanvas offcanvas-end rounded-m offcanvas-detached" style="width:300px" id="menu-gallery-4">
+        <div class="content mb-0">
+        
+            <div class="box-2">
+                <div style="padding-top: 100px;" ></div>
+                <div style="text-align: center;" id="fat" class="result">
+                    <img style="border-radius: 1000px;width:200px;height:200px;animation: rotation 6s infinite linear; " src="/static/media/Content/Default.jpg">
+                    <style>
+                        @keyframes rotation {
+                            from{
+                            transform: rotate(0deg);
+                            }to{
+                                transform: rotate(360deg);
+                            }
+                        }
+                    </style>
+                </div>
+            </div>
+           
+            <div style="text-align: center;" class="box">
+                <div style="padding-top: 20px;"></div>
+                <div class="upload-btn-wrapper">
+
+                    <button class="btn btn-s text-uppercase  gradient-blue" ><i style="padding-right: 3px;" class="bi bi-music-note font-20"></i>Select a file</button>
+                    <input   class="btn btn-s text-uppercase  gradient-blue"  id="file-input2" style="width: 100%;" type="file" name="New_Img" required="" accept="Audio/*" />
+                  </div>
+                  <audio src="" autoplay loop id="plt"></audio>
+                  <style>
+                  .upload-btn-wrapper {
+                    position: relative;
+                    overflow: hidden;
+                    display: inline-block;
+                  }	  
+                  .upload-btn-wrapper input[type=file] {
+                    font-size: 100px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    
+                    width: 50%;
+                    opacity: 0;
+                  }
+                  </style>
+            </div>
+            </div>
+            <div class="form-custom form-label form-icon mb-3">
+                <textarea name="Text" required="Say Something about your post!"  style="position: absolute;left: 2.5%;top: 70px;width: 95%;height: 100%;border-radius: 10px;border: 1px" maxlength="200"  class="rounded-xs" placeholder="Say Something about this audio!" id="Audmsg"></textarea>
+                </div> 
+            <button  onclick="sendaud('{{IDD_ID}}','{{RES}}','{{IDD}}')" id="hh" class="btn btn-s text-uppercase  gradient-red shadow-bg shadow-bg-m" style="position: absolute;width: 95%;left: 2.5%;bottom: 80px;">Send</button>
+     
+        
+        <style>
+        
+        .hide {
+            display: none;
+        }
+        img {
+            max-width: 100%;
+        }
+        </style>
+    </div>
+        
+
+
+
+<div id="menu-main" data-menu-active="nav-pages" data-menu-load="menu-main.html" style="width:280px;" class="offcanvas offcanvas-start offcanvas-detached rounded-m">
+</div>
+
+<div id="menu-color" data-menu-load="menu-highlights.html" style="height:340px" class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+</div>
+
+<div class="page-content header-clear-medium">
+<style>
+			.speach-icon a{padding-top:0!important;display:block;border-radius:15px;width:38px;height:38px;line-height:20px;margin-top:3px;transform:translateY(10px)}.speach-input input{width:100%;display:block;line-height:44px;height:44px;margin-top:8px;border-radius:15px}.theme-dark .speach-input input{border:solid 1px #404040}
+		</style>
+<div id="incon" class="content mt-0">
+<p  data-bs-toggle="offcanvas" data-bs-target="#menu-upload" class="text-center font-600 font-11 mb-3 opacity-50">Thursday, 15th March, 2022</p>
+
+{% for i in Data%}
+{% if i.1 == IDD  %}
+{% if i.3 == "TEXT"%}
+<div class="d-flex mb-3 pb-1">
+<div class="align-self-end">
+<img data-bs-toggle="offcanvas" data-bs-target="#menu-upload" src="/static/media/Users/{{i.1}}.jpg?={{RAND}}" width="24" height="24" class="rounded-s mb-n4">
+</div>
+
+<div  class="ms-2 ps-1">
+<div class="gradient-highlight rounded-m p-2" style="border-bottom-left-radius:0px!important">
+<p class="d-block p-1 ps-2 pe-3 color-white font-14">
+{{i.4}}
+</p>
+</div>
+</div>
+</div>
+
+{% elif i.3 == "AUDIO" %}
+<div class="d-flex mb-3 pb-1">
+    <div class="align-self-end">
+    <img src="/static/media/Users/{{i.1}}.jpg?={{RAND}}" width="24" height="24" class="rounded-s mb-n4" data-bs-toggle="offcanvas" data-bs-target="#menu-upload" class="ms-2 ps-1" >
+    </div>
+    
+    <div  class="ms-2 ps-1">
+    <div class="gradient-highlight rounded-m p-2" style="border-bottom-left-radius:0px!important">
+        <div style="width:130px;text-align: center;" class=" me-1 bg-red-dark rounded-sm border-blue-dark" >
+            <button onclick="Playfile('{{i.0}}')" style="left: 3px;border-width: 4px;border-radius: 100px;top: 7px;" class="btn  border-white btn-border "><i class="bi bi-play-fill color-white  font-30"></i></button>
+        </div>
+        <p class="d-block p-1 ps-2 pe-3 color-white font-14">
+    {{i.4}}
+    </p>
+    </div>
+    </div>
+    </div>
+
+{%  else %}
+<div class="d-flex mb-3 pb-1">
+    <div class="align-self-end">
+    </div>
+    <div  >
+    <div class="gradient-highlight rounded-m p-2" style="border-bottom-left-radius:0px!important">
+    <div class="bg-gray-light rounded-m">
+    <img src="/static/media/Uploads/Images/{{i.0}}.jpg?={{RAND}}" class="img-fluid rounded-m">
+    </div>
+    <p class="d-block p-1 ps-2 pe-3 color-white font-14">
+    {{i.4}}
+    </p>
+    </div>
+    </div>
+    </div>
+
+{% endif %}
+
+
+
+{% else %}
+{%if i.3 == "TEXT"%}
+<div   class="d-flex mb-3 pb-1">
+<div class="ms-auto me-2 pe-1">
+<div class="bg-gray-light rounded-m p-2" style="border-bottom-right-radius:0px!important">
+<p class="d-block p-1 px-2 color-black font-14">
+{{i.4}}
+</p>
+</div>
+</div>
+
+<div class="align-self-end">
+<img data-bs-toggle="offcanvas" data-bs-target="#menu-upload" src="/static/media/Users/{{i.1}}.jpg?={{RAND}}" width="24" height="24" class="rounded-s mb-n4">
+</div>
+</div>
+{% elif i.3 == "AUDIO" %}
+<div   class="d-flex mb-3 pb-1">
+    <div class="ms-auto me-2 pe-1">
+    <div class="bg-gray-light rounded-m p-2" style="border-bottom-right-radius:0px!important">
+        <div style="width:130px;text-align: center;" class=" me-1 bg-red-dark rounded-sm border-blue-dark" >
+            <button onclick="Playfile('{{i.0}}')" style="left: 3px;border-width: 4px;border-radius: 100px;top: 7px;" class="btn  border-white btn-border "><i class="bi bi-play-fill color-white  font-30"></i></button>
+        </div>
+        <p class="d-block p-1 px-2 color-black font-14">
+    {{i.4}}
+    </p>
+    </div>
+    </div>
+    
+    <div class="align-self-end">
+    <img src="/static/media/Users/{{i.1}}.jpg?={{RAND}}" width="24" height="24" class="rounded-s mb-n4" data-bs-toggle="offcanvas" data-bs-target="#menu-upload" class="ms-2 ps-1">
+    </div>
+    </div>
+
+{% else %}
+
+<div class="d-flex mb-3 pb-1"  data-bs-toggle="offcanvas" data-bs-target="#menu-upload">
+    <div class="ms-auto me-2 pe-1">
+    <div class="bg-gray-light rounded-m p-2" style="border-bottom-right-radius:0px!important">
+    <div class="bg-gray-light rounded-m">
+    <img src="/static/media/Uploads/Images/{{i.0}}.jpg?={{RAND}}" class="img-fluid rounded-m">
+    </div>
+    <p class="d-block p-1 px-2 color-black font-14">
+    {{i.4}}
+    </p>
+    </div>
+    </div>
+    <div class="align-self-end">
+    </div>
+    </div>
+    {% endif %}
+{% endif %}
+{% endfor %}
+<input id="ref" type="hidden"/>
+<div class="mb-4"></div>
+</div>
+</div>
+<div style="padding-top: 50px;"></div>
+
+<div  class="offcanvas offcanvas-bottom rounded-m offcanvas-detached bg-theme" id="menu-upload">
+<div class="content">
+<div class="d-flex pb-2">
+<div class="align-self-center">
+
+</div>
+<div class="align-self-center ms-auto">
+</div>
+</div>
+
+<div  id="footer-bar" class=" footer-bar-detached" style="position: sticky;">
+	
+	<div class="flex-fill speach-input">
+	<input type="text" class="form-control bg-theme" id="send_text" placeholder="Enter your Message here">
+	</div>
+	<div class="ms-3 speach-icon">
+	<a href="#" onclick="sendnew('{{IDD_ID}}','{{RES}}','{{IDD}}')" class="bg-blue-dark me-1"><i class="bi bi-chevron-up pt-2"></i></a>
+	</div>
+	</div>
+
+  
+    
+<div class="list-group list-custom list-group-m rounded-xs list-group-flush bg-theme">
+    
+<a href="#"  data-bs-toggle="offcanvas" data-bs-target="#menu-gallery-3"  class="list-group-item">
+<i class="bi bi-image color-theme opacity-30 font-16"></i>
+<div class="font-500 ps-2">Photo</div>
+<i class="bi bi-chevron-right pe-1"></i>
+</a>
+<a href="#" data-bs-toggle="offcanvas" data-bs-target="#menu-gallery-4" class="list-group-item">
+<i class="bi bi-music-note color-theme opacity-30 font-16"></i>
+<div class="font-500 ps-2">Audio</div>
+<i class="bi bi-chevron-right pe-1"></i>
+</a>
+<div style="padding-top: 50px;"></div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript" src="{% static 'Extra-3/scripts/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'Extra-3/scripts/custom.js' %}"></script>
+</body></html>
+
+<input value="" type="hidden" id="sd"/>
+<script>
+	
+
+    function getCookie(name) {
+    window.scrollTo(0,document.body.scrollHeight);
+
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+    }
+
+    const csrftoken = getCookie('csrftoken');
+    //console.log(csrftoken)
+    function Playfile(id){
+        var doc = document.getElementById("ref").value
+        var aud = document.getElementById("plt")
+        
+        if (doc === id){
+         aud.src = ""
+         var doc = document.getElementById("ref").value=""
+
+        }else{
+         aud.src = "/static/media/Uploads/Audios/"+id+".mp3"
+         var doc = document.getElementById("ref").value=id
+
+        }
+    }
+    function sendnew(data_id,data_send,data_recieve){
+	var nval = document.getElementById("send_text").value
+    if (nval === ""){
+        inval =".."
+    }else{
+        inval = nval
+    }
+    
+	data = JSON.stringify({
+	Sender_Id: data_send ,
+    Reciever_Id: data_recieve ,
+    Idd_Id: data_id, 
+    Type: "TEXT", 
+    Content: inval
+   })
+    fetch("../../../Sendmesseging_page", {
+    method: 'POST',
+    body: data,
+    headers: { 'X-CSRFToken': csrftoken,'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        },
+   })
+  .then(response => response.json())
+  .then(data => {
+    //console.log(data);
+	document.getElementById("send_text").value = ""
+    
+    var div1 = document.createElement("div")
+    div1.setAttribute("class","d-flex mb-3 pb-1")
+    div1.setAttribute("data-bs-toggle","offcanvas")
+    div1.setAttribute("data-bs-target","#menu-upload")
+
+	var div2 = document.createElement("div")
+    div2.setAttribute("class","ms-auto me-2 pe-1")
+    var img1 = document.createElement("img")
+    img1.setAttribute("class","rounded-s mb-n4")
+    img1.setAttribute("width","24")
+    img1.setAttribute("height","24")
+
+    img1.setAttribute("src","/static/media/Users/"+data["Sender_Id"]+".jpg?={{RAND}}")
+
+    
+    var div3 = document.createElement("div")
+    div3.setAttribute("class","align-self-end")
+    
+
+	var div4 = document.createElement("div")
+    div4.setAttribute("class","bg-gray-light rounded-m p-2")
+    div4.setAttribute("style","border-bottom-right-radius:0px!important")
+
+
+    var span1 = document.createElement("span")
+    span1.setAttribute("class","d-block p-1 ps-2 pe-3 color-black font-14")
+	
+    span1.textContent = data["Content"]
+
+
+     div3.append(img1)
+     div2.append(div4)
+     div4.append(span1)
+     var main = document.getElementById("incon")
+     div1.append(div2)
+     div1.append(div3)
+
+     main.append(div1)
+
+ 
+    window.scrollTo(0,document.body.scrollHeight);
+   });}
+
+   setInterval(load_all,3000);
+    function load_all(){
+    data = JSON.stringify({
+	idd_id: '{{IDD_ID}}',
+    resv_id: '{{RES}}'
+   })
+    fetch("../../../Hitmesseging_page", {
+    method: 'POST',
+    body: data,
+    headers: { 'X-CSRFToken': csrftoken,'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        },
+   })
+  .then(response => response.json())
+  .then(data => {
+    for (i in data) { 
+
+    console.log(data);
+
+    if (data[i][4] === "TEXT"){
+
+    
+    
+    var div1 = document.createElement("div")
+    div1.setAttribute("class","d-flex mb-3 pb-1")
+	var div2 = document.createElement("div")
+    div2.setAttribute("class","align-self-end")
+    var img1 = document.createElement("img")
+    img1.setAttribute("class","rounded-s mb-n4")
+    img1.setAttribute("width","24")
+    img1.setAttribute("height","24")
+
+    img1.setAttribute("src","/static/media/Users/"+data[i][1]+".jpg?={{RAND}}")
+
+    
+    var div3 = document.createElement("div")
+    div3.setAttribute("class","ms-2 ps-1")
+    div3.setAttribute("data-bs-toggle","offcanvas")
+    div3.setAttribute("data-bs-target","#menu-upload")
+
+
+	var div4 = document.createElement("div")
+    div4.setAttribute("class","gradient-highlight rounded-m p-2")
+    div4.setAttribute("style","border-bottom-left-radius:0px!important")
+
+
+    var span1 = document.createElement("span")
+    span1.setAttribute("class","d-block p-1 ps-2 pe-3 color-white font-14")
+	
+    span1.textContent = data[i][5]
+
+
+
+     div2.append(img1)
+     div4.append(span1)
+     var main = document.getElementById("incon")
+     div3.append(div4)
+     div1.append(div2)
+     div1.append(div3)
+   
+     main.append(div1)
+    window.scrollTo(0,document.body.scrollHeight);
+     
+    }else if (data[i][4] === "IMAGE"){
+  
+
+    var div1 = document.createElement("div")
+    div1.setAttribute("class","d-flex mb-3 pb-1")
+	var div2 = document.createElement("div")
+    div2.setAttribute("class","align-self-end")
+    var img1 = document.createElement("img")
+    img1.setAttribute("class","img-fluid rounded-m")
+
+    img1.setAttribute("src","/static/media/Uploads/Images/"+data[i][8]+".jpg?={{RAND}}")
+
+    
+    var div3 = document.createElement("div")
+    div3.setAttribute("class","ms-2 ps-1")
+    div3.setAttribute("data-bs-toggle","offcanvas")
+    div3.setAttribute("data-bs-target","#menu-upload")
+
+
+	var div4 = document.createElement("div")
+    div4.setAttribute("class","gradient-highlight rounded-m p-2")
+    div4.setAttribute("style","border-bottom-left-radius:0px!important")
+
+
+    var span1 = document.createElement("span")
+    span1.setAttribute("class","d-block p-1 ps-2 pe-3 color-white font-14")
+	
+    span1.textContent = data[i][5]
+
+
+
+     div4.append(img1)
+     div4.append(span1)
+     var main = document.getElementById("incon")
+     div3.append(div4)
+     div1.append(div2)
+     div1.append(div3)
+   
+     main.append(div1)
+    window.scrollTo(0,document.body.scrollHeight);
+
+
+    }else{
+     
+    var div1 = document.createElement("div")
+    div1.setAttribute("class","d-flex mb-3 pb-1")
+	var div2 = document.createElement("div")
+    div2.setAttribute("class","align-self-end")
+    var img1 = document.createElement("img")
+    img1.setAttribute("class","rounded-s mb-n4")
+    img1.setAttribute("width","24")
+    img1.setAttribute("height","24")
+
+    img1.setAttribute("src","/static/media/Users/"+data[i][1]+".jpg?={{RAND}}")
+    
+
+    var idiv = document.createElement("div")
+    idiv.setAttribute("class", "me-1 bg-red-dark rounded-sm border-blue-dark")
+    idiv.setAttribute("style", "width:130px;text-align: center;")
+    var ibtn = document.createElement("button")
+    ibtn.setAttribute("class", "btn  border-white btn-border ")
+    ibtn.setAttribute("style", "left: 3px;border-width: 4px;border-radius: 100px;top: 7px;z-index:100")
+    ibtn.innerHTML = '<i class="bi bi-play-fill color-white  font-30"></i>'
+    var dat = data[i][8]
+    var attachedd = Playfile(dat)
+    ibtn.addEventListener("click" , function(){
+        var doc =  document.getElementById("ref").value
+        var aud = document.getElementById("plt")
+        console.log(doc);
+        console.log(dat);
+        if (parseInt(doc) === parseInt(dat)){
+         aud.src = ""
+         var doc = document.getElementById("ref").value=""
+         console.log("eee");
+        }else{
+         aud.src = "/static/media/Uploads/Audios/"+dat+".mp3"
+         var doc = document.getElementById("ref").value=dat
+
+        }})
+    
+    var div3 = document.createElement("div")
+    div3.setAttribute("class","ms-2 ps-1")
+    img1.setAttribute("data-bs-toggle","offcanvas")
+    img1.setAttribute("data-bs-target","#menu-upload")
+
+
+	var div4 = document.createElement("div")
+    div4.setAttribute("class","gradient-highlight rounded-m p-2")
+    div4.setAttribute("style","border-bottom-left-radius:0px!important")
+
+
+    var span1 = document.createElement("span")
+    span1.setAttribute("class","d-block p-1 ps-2 pe-3 color-white font-14")
+	
+    span1.textContent = data[i][5]
+
+
+    idiv.append(ibtn)
+
+     
+     div2.append(img1)
+     div4.append(idiv)
+
+     div4.append(span1)
+     var main = document.getElementById("incon")
+     div3.append(div4)
+     div1.append(div2)
+     div1.append(div3)
+   
+     main.append(div1)
+    window.scrollTo(0,document.body.scrollHeight);
+     
+    
+
+        
+    }
+    
+     }});}
+
+
+    // vars
+    const uploadFile = file =>{
+        const fd =new FormData()
+        fd.append('New_Img',file)
+    }
+    let result = document.getElementById("fat"),
+    upload = document.getElementById("file-input"),
+    bt = document.getElementById("hh"),
+    
+    cropper = '';
+    bt.addEventListener('onclick', () => { uploadFile(upload.files[0])})
+    // on change show image with crop options
+    upload.addEventListener('change', (e) => {
+      if (e.target.files.length) {
+            
+        const reader = new FileReader();
+        reader.onload = (e)=> {
+          if(e.target.result){
+              console.log(e);
+                    
+                    let img = document.createElement('img');
+                    img.id = 'image';
+                    img.src = e.target.result;
+                    console.log(e.target.result);
+                    img.style = "border-radius: 20px;width:200px;height:200px"
+                    
+                    result.innerHTML = '';
+                
+            result.appendChild(img);
+            const files = e.target.result
+            document.getElementById("sd").value=files
+                    // show save btn and options
+                   // save.classList.remove('hide');
+                   // options.classList.remove('hide');
+                    // init cropper
+                    //cropper = new Cropper(img);
+          }
+        };
+        reader.readAsDataURL(e.target.files[0]);
+      }
+    });
+
+
+
+   
+    function sendimg(data_id,data_send,data_recieve){
+	var nval = document.getElementById("Picmsg").value
+    if (nval === ""){
+        inval =".."
+    }else{
+        inval = nval
+    }
+    
+
+
+    const formData = new FormData
+    formData.append('New_Img',upload.files[0])
+    formData.append('Sender_Id', data_send)
+    formData.append('Reciever_Id', data_recieve)
+    formData.append('Idd_Id', data_id)
+    formData.append('Content', inval)
+    formData.append('Type', "IMAGE")
+
+    
+  
+   
+
+    fetch("../../../Send_Image_page", {
+    method: 'POST',
+    body: formData,
+    headers: { 'X-CSRFToken': csrftoken,'Accept': 'application/json',
+         'X-Requested-with': 'XMLHttpRequest'
+        },
+   })
+  .then(response => response.json())
+  .then(data => {
+    //console.log(data);
+	document.getElementById("Picmsg").value = ""
+    
+    var div1 = document.createElement("div")
+    div1.setAttribute("class","d-flex mb-3 pb-1")
+    div1.setAttribute("data-bs-toggle","offcanvas")
+    div1.setAttribute("data-bs-target","#menu-upload")
+
+	var div2 = document.createElement("div")
+    div2.setAttribute("class","ms-auto me-2 pe-1")
+    var img1 = document.createElement("img")
+    img1.setAttribute("class","rounded-s mb-n4")
+    img1.setAttribute("width","24")
+    img1.setAttribute("height","24")
+
+    img1.setAttribute("src","/static/media/Users/"+data["ID"]+".jpg?={{RAND}}")
+    
+    var img2 = document.createElement("img")
+    img2.setAttribute("class","img-fluid rounded-m")
+    img2.setAttribute("src","/static/media/Uploads/Images/"+data["IDD"]+".jpg?={{RAND}}")
+    
+    var div3 = document.createElement("div")
+    div3.setAttribute("class","align-self-end")
+    
+
+	var div4 = document.createElement("div")
+    div4.setAttribute("class","bg-gray-light rounded-m p-2")
+    div4.setAttribute("style","border-bottom-right-radius:0px!important")
+
+
+    var span1 = document.createElement("span")
+    span1.setAttribute("class","d-block p-1 ps-2 pe-3 color-black font-14")
+	
+    span1.textContent = data["TEXT"]
+
+
+     //div3.append(img1)
+     div2.append(div4)
+     div4.append(img2)
+     div4.append(span1)
+
+     var main = document.getElementById("incon")
+     div1.append(div2)
+     div1.append(div3)
+
+     main.append(div1)
+
+ 
+    window.scrollTo(0,document.body.scrollHeight);
+   });}
+
+
+
+
+
+    // vars
+    upload2 = document.getElementById("file-input2"),
+    cropper = '';
+    
+    // on change show image with crop options
+    upload2.addEventListener('change', (e) => {
+        console.log("fff");
+      if (e.target.files.length) {
+            
+        const reader = new FileReader();
+        reader.onload = (e)=> {
+          if(e.target.result){
+              console.log(e);
+                    
+                    var aud = document.getElementById("plt")
+                    aud.src = e.target.result;
+                   //console.log(e.target.result);
+                    
+          
+            const files = e.target.result
+            document.getElementById("sd").value=files
+                    // show save btn and options
+                   // save.classList.remove('hide');
+                   // options.classList.remove('hide');
+                    // init cropper
+                    //cropper = new Cropper(img);
+          }
+        };
+        reader.readAsDataURL(e.target.files[0]);
+      }
+    });
+
+
+
+    function sendaud(data_id,data_send,data_recieve){
+	var nval = document.getElementById("Audmsg").value
+    if (nval === ""){
+        inval =".."
+    }else{
+        inval = nval
+    }
+    
+    upload2 = document.getElementById("file-input2")
+
+
+
+    const formData = new FormData
+    formData.append('New_Img',upload2.files[0])
+    formData.append('Sender_Id', data_send)
+    formData.append('Reciever_Id', data_recieve)
+    formData.append('Idd_Id', data_id)
+    formData.append('Content', inval)
+    formData.append('Type', "AUDIO")
+
+    
+  
+   
+
+    fetch("../../../Send_Image_page", {
+    method: 'POST',
+    body: formData,
+    headers: { 'X-CSRFToken': csrftoken,'Accept': 'application/json',
+         'X-Requested-with': 'XMLHttpRequest'
+        },
+   })
+  .then(response => response.json())
+  .then(data => {
+    //console.log(data);
+	document.getElementById("Audmsg").value = ""
+    
+    var div1 = document.createElement("div")
+    div1.setAttribute("class","d-flex mb-3 pb-1")
+    
+
+	var div2 = document.createElement("div")
+    div2.setAttribute("class","ms-auto me-2 pe-1")
+    var img1 = document.createElement("img")
+    img1.setAttribute("class","rounded-s mb-n4")
+    img1.setAttribute("width","24")
+    img1.setAttribute("height","24")
+    img1.setAttribute("data-bs-toggle","offcanvas")
+    img1.setAttribute("data-bs-target","#menu-upload")
+
+    img1.setAttribute("src","/static/media/Users/"+data["ID"]+".jpg?={{RAND}}")
+    
+    var idiv = document.createElement("div")
+    idiv.setAttribute("class", "me-1 bg-red-dark rounded-sm border-blue-dark")
+    idiv.setAttribute("style", "width:130px;text-align: center;")
+    var ibtn = document.createElement("button")
+    ibtn.setAttribute("class", "btn  border-white btn-border ")
+    ibtn.setAttribute("style", "left: 3px;border-width: 4px;border-radius: 100px;top: 7px;z-index:100")
+    ibtn.innerHTML = '<i class="bi bi-play-fill color-white  font-30"></i>'
+    var dat = data["IDD"]
+    var attachedd = Playfile(dat)
+    ibtn.addEventListener("click" , function(){
+        var doc =  document.getElementById("ref").value
+        var aud = document.getElementById("plt")
+        console.log(doc);
+        console.log(dat);
+        if (parseInt(doc) === parseInt(dat)){
+         aud.src = ""
+         var doc = document.getElementById("ref").value=""
+         console.log("eee");
+        }else{
+         aud.src = "/static/media/Uploads/Audios/"+dat+".mp3"
+         var doc = document.getElementById("ref").value=dat
+
+        }
+
+    });
+   
+        
+    
+    //<div style="width:130px;text-align: center;" class=" me-1 bg-red-dark rounded-sm border-blue-dark" >
+      //      <button onclick="Playfile('{{i.0}}')" style="left: 3px;border-width: 4px;border-radius: 100px;top: 7px;" class="btn  border-white btn-border "><i class="bi bi-play-fill color-white  font-30"></i></button>
+       // </div>
+
+    var aud2 = document.createElement("audio")
+    aud2.setAttribute("class","audiplay")
+    aud2.setAttribute("src","/static/media/Uploads/Audios/"+data["IDD"]+".mp3")
+    //aud2.setAttribute("style","potition:absolute;width:40%")
+    
+    var div5 = document.createElement("div")
+    div5.setAttribute("style","position:fixed;width:100%;bottom:0px ;left:0px;")
+    var div3 = document.createElement("div")
+    div3.setAttribute("class","align-self-end")
+    
+
+	var div4 = document.createElement("div")
+    div4.setAttribute("class","bg-gray-light rounded-m p-2")
+    div4.setAttribute("style","border-bottom-right-radius:0px!important")
+
+
+    var span1 = document.createElement("span")
+    span1.setAttribute("class","d-block p-1 ps-2 pe-3 color-black font-14")
+	
+    span1.textContent = data["TEXT"]
+
+     var audv = document.getElementById("plt")
+     audv.src=""
+     
+     idiv.append(ibtn)
+     div3.append(img1)
+     div2.append(div4)
+     div5.append(aud2)
+     div4.append(idiv)
+     div4.append(span1)
+
+     var main = document.getElementById("incon")
+     div1.append(div2)
+     div1.append(div3)
+
+     main.append(div1)
+
+ 
+    window.scrollTo(0,document.body.scrollHeight);
+   });}
+
+
+</script>
+
+<script src="{% static 'Extra-4/audiplay.js' %}"></script>
+<script src="{% static 'Extra-4/' %}"></script>

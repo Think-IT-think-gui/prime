@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Hype</title>
+<link rel="stylesheet" type="text/css" href="{% static 'Extra-1/styles/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'Extra-1/fonts/bootstrap-icons.css' %}">
+	<div>
+		
+	<div class="box-2">
+		<div style="padding-top: 100px;" ></div>
+		<div style="text-align: center;" id="fat" class="result">
+			<img style="border-radius: 1000px;width:200px;height:200px " src="/static/media/Users/{{USER}}.jpg?={{RAND}}">
+		
+		</div>conn = sqlite3.connect(f'{BASE_DIR}/db.sqlite3')
+        c = conn.cursor()
+        c.execute(f"SELECT *  FROM Handler_User_info WHERE id='{pk}'")
+        user_info = c.fetchone()
+        conn.commit()
+	</div>
+	<form action="../../../Profile_Image_page/o" method="POST" enctype="multipart/form-data" >
+		{% csrf_token %}
+       <input type="hidden" value="{{USER}}" name="USER">
+	<div style="text-align: center;" class="box">
+		<div style="padding-top: 20px;"></div>
+        <div class="upload-btn-wrapper">
+			<button class="btn btn-s text-uppercase  gradient-blue" ><i style="padding-right: 3px;" class="bi bi-camera-fill font-20"></i>Select a file</button>
+			<input   class="btn btn-s text-uppercase  gradient-blue"  id="file-input" style="width: 100%;" type="file" name="New_Img" required="" accept="image/*" />
+		  </div>
+		  <style>
+		  .upload-btn-wrapper {
+			position: relative;
+			overflow: hidden;
+			display: inline-block;
+		  }	  
+		  .upload-btn-wrapper input[type=file] {
+			font-size: 100px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			
+			width: 50%;
+			opacity: 0;
+		  }
+		  </style>
+	</div>
+    </div>
+
+    <button  type="submit" class="btn btn-s text-uppercase  gradient-red shadow-bg shadow-bg-m" style="position: absolute;width: 95%;left: 2.5%;bottom: 60px;">Upload</button>
+</form>
+<a href="../../../../../../" ><button   class="btn btn-s text-uppercase  gradient-green shadow-bg shadow-bg-m" style="position: absolute;width: 40%;left: 30%;bottom: 10px;">Skip</button>
+</a>
+<style>
+
+.hide {
+	display: none;
+}
+img {
+	max-width: 100%;
+}
+</style>
+<script>
+
+// vars
+let result = document.getElementById("fat"),
+upload = document.getElementById("file-input"),
+
+cropper = '';
+
+// on change show image with crop options
+upload.addEventListener('change', (e) => {
+  if (e.target.files.length) {
+		
+    const reader = new FileReader();
+    reader.onload = (e)=> {
+      if(e.target.result){
+		  console.log(e);
+				
+				let img = document.createElement('img');
+				img.id = 'image';
+				img.src = e.target.result;
+				console.log(e.target.result);
+				img.style = "border-radius: 1000px;width:200px;height:200px"
+				
+				result.innerHTML = '';
+			
+        result.appendChild(img);
+				// show save btn and options
+				save.classList.remove('hide');
+				options.classList.remove('hide');
+				// init cropper
+				cropper = new Cropper(img);
+      }
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  }
+});
+</script>
